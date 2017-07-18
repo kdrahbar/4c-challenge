@@ -1,0 +1,9 @@
+{
+        "name": "voxsup_starter",
+        "version": "0.0.1",
+        "author": "Dan",
+        "description": "Voxsup starter server.",
+        "dependencies": {
+		"express": "3.4.4"
+        }
+}
