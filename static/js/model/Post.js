@@ -40,7 +40,6 @@ define(function(require) {
     var p = {
       _VOXSUPMETHOD_: 'EDGE'
     };
-
     q = breeze.EntityQuery.from('me/posts').withParameters(p).toType('Post');
     return manager.executeQuery(q);
   };
@@ -49,23 +48,23 @@ define(function(require) {
     var p = {
       _VOXSUPMETHOD_: 'OBJ'
     };
-
     q = breeze.EntityQuery.from(post_id).withParameters(p).toType('Post');
     return manager.executeQuery(q);  
   };
 
-  var downloadComments = function(manager) {
+  var downloadComments = function(manager, post_id) {
     var p = {
-      _VOXSUPMETHOD_: 'EDGE'
+      _VOXSUPMETHOD_: 'OBJ'
     };
 
-    q = breeze.EntityQuery.from('me/posts').withParameters(p).toType('Post');
+    q = breeze.EntityQuery.from(post_id + '/comments').withParameters(p);
     return manager.executeQuery(q);
   };
 
   return {
     initialize: initialize,
     downloadPosts: downloadPosts,
-    downloadPost: downloadPost
+    downloadPost: downloadPost,
+    downloadComments: downloadComments,
   };
 });

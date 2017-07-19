@@ -4,9 +4,14 @@ define(function(require) {
 
   App.registerRoute('postIndex', {
     route: Ember.Route.extend({
-      redirect: function() {
-        this.transitionTo('comments');
+      beforeModel: function(transition) {
+        console.log(transition.params["post_id"]);
+        this.transitionTo('comments', transition.params["post_id"]);
       }
+      // redirect: function(transition) {
+      //   console.log(transition.params);
+      //   this.transitionTo('comments');
+      // }
     })
   });
 

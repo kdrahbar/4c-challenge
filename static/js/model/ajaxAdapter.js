@@ -70,7 +70,6 @@ define(function(require) {
     var results = [];
     var curr = 0;
     var count = undefined;
-
     function run() {
       fetch(path, params).then(
         function(r) {

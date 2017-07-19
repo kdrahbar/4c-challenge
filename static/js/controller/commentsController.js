@@ -7,7 +7,8 @@ define(function(require) {
     findComments: function(post_id) {
       return dctx.downloadComments(post_id).then(
         function(r) {
-          return Q.resolve(Ember.getWithDefault(r, 'results.0', {}));
+          console.log(r)
+          return Q.resolve(Ember.getWithDefault(r, 'results', []));
         }
       );
     }
@@ -17,6 +18,6 @@ define(function(require) {
 
 // define(function(require) {
 //   var Ember = require('ember');
-
+//   console.log("shnibddass")
 //   return Ember.Controller;
 // });
